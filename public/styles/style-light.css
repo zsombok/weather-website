@@ -7,6 +7,11 @@
   outline: none;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
 body {
   max-width: 800px;
   margin: 0 auto;
@@ -61,23 +66,18 @@ nav a:hover {
 }
 
 #weather-form > * {
-  padding: 8px 16px;
+  padding: 12px 20px;
   font-size: 1.2em;
   border: none;
-  box-shadow: -2px -3px 4px 1px rgb(255, 255, 255) inset, 1px 2px 4px 1px rgba(0,0,0,0.2) inset, 1px 2px 4px 1px rgba(0,0,0,0.2);
+  box-shadow: 2px 3px 6px 1px rgba(255, 255, 255, 0.8) inset, -1px -2px 6px 1px rgba(0, 0, 0, 0.12) inset, 1px 2px 4px 0 rgba(0,0,0,0.12);
+  background: rgb(244, 244, 244);
   border-radius: 60px;
-}
-
-
-#weather-form input {
-  padding: 8px 16px;
-  background: rgba(244, 244, 244, 1);
 }
 
 #weather-form button {
   cursor: pointer;
-  margin-right: 8px;
-  background: rgba(240, 240, 240, 1);
+  background: rgb(232, 232, 232);
+  margin-right: 16px;
 }
 
 .forecast-item {
@@ -87,11 +87,15 @@ nav a:hover {
   padding: 8px;
   display: flex;
   align-items: center;
-  transition: 1.6s cubic-bezier(0.6,0,1,0.6);
+  transition: backgound 1.6s cubic-bezier(0.6,0,1,0.6);
   border-radius: 40px;
-  box-shadow: -3px -4px 6px 0px rgba(255, 255, 255, 0.4) inset, 2px 3px 6px 0px rgba(0,0,0,0.16) inset, 1px 2px 6px 0px rgba(0,0,0,0.2);
+  box-shadow: 2px 3px 8px 0px rgba(255, 255, 255, 0.8) inset, -1px -2px 8px 0px rgba(0, 0, 0, 0.12) inset, 1px 2px 4px 0 rgba(0,0,0,0.2);
   overflow: hidden;
   white-space: nowrap;
+}
+
+.forecast-item:hover {
+  filter: saturate(1.1) brightness(0.96);
 }
 
 .success {
@@ -102,7 +106,7 @@ nav a:hover {
   background: rgba(255, 220, 220, 1);
 }
 
-.city {
+.location {
   text-decoration: underline;
   font-size: 1.2em;
   line-height: 1.4;

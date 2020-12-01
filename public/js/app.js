@@ -4,7 +4,7 @@ weatherForm.addEventListener('submit', (e) => {
   e.preventDefault()
   const location = e.target.elements.location.value
   const mainEl = document.querySelector('.forecasts-container')
-  const containerEl = document.createElement('div')
+  const containerEl = document.createElement('a')
   containerEl.classList = 'forecast-item'
   mainEl.prepend(containerEl)
   const loadingEl = document.createElement('div')
@@ -27,7 +27,8 @@ weatherForm.addEventListener('submit', (e) => {
         containerEl.classList += ' fail'
         return
       }
-      containerEl.classList += ' success'
+      containerEl.setAttribute('href', `https://www.google.com/maps/search/${encodeURIComponent(location)}`)
+      containerEl.setAttribute('target', '_blank')
       const imageEl = document.createElement('img')
       imageEl.setAttribute('src', weatherIcon)
       imageEl.classList = 'weather-icon'
@@ -35,12 +36,10 @@ weatherForm.addEventListener('submit', (e) => {
       const infosEl = document.createElement('p')
       infosEl.classList = 'weather-infos'
       containerEl.append(infosEl)
-      const locationEl = document.createElement('a')
+      const locationEl = document.createElement('p')
       locationEl.classList = 'location'
       const wordsOfLocation = location.split(' ')
       console.log(wordsOfLocation)
-      locationEl.setAttribute('href', `https://www.google.com/maps/search/${location}`)
-      locationEl.setAttribute('target', '_blank')
       locationEl.textContent = location
       infosEl.append(locationEl)
       const conditionEl = document.createElement('p')
@@ -49,6 +48,7 @@ weatherForm.addEventListener('submit', (e) => {
       const temperatureEl = document.createElement('p')
       temperatureEl.textContent = `It is ${temperature} C° outside, and feels like ${temperature === feelslike ? 'the same' : `${feelslike} C°`}.`
       infosEl.append(temperatureEl)
+      containerEl.classList += ' success'
     })
   })
   e.target.elements.location.value = ''
