@@ -1,4 +1,3 @@
-console.log('WEEEE')
 const weatherForm = document.querySelector('#weather-form')
 
 weatherForm.addEventListener('submit', (e) => {
@@ -9,7 +8,7 @@ weatherForm.addEventListener('submit', (e) => {
   containerEl.classList = 'forecast-item'
   mainEl.prepend(containerEl)
   const loadingEl = document.createElement('div')
-  loadingEl.textContent = `Loading weather info for ${location}`
+  loadingEl.textContent = `We just sent someone to check the weather around ${location}`
   const loadingInterval = setInterval(() => {
     loadingEl.textContent += '.'
   }, 200)
@@ -17,7 +16,7 @@ weatherForm.addEventListener('submit', (e) => {
   containerEl.append(loadingEl)
 
   window.fetch(`/weather?address=${location}`).then((response) => {
-    response.json().then(({ error, weatherIcon, location, weatherDescription, temperature, feelslike } = {}) => {
+    response.json().then(({ error, lat, long, weatherIcon, location, weatherDescription, temperature, feelslike } = {}) => {
       clearInterval(loadingInterval)
       containerEl.removeChild(loadingEl)
       if (error) {
@@ -36,10 +35,14 @@ weatherForm.addEventListener('submit', (e) => {
       const infosEl = document.createElement('p')
       infosEl.classList = 'weather-infos'
       containerEl.append(infosEl)
-      const cityEl = document.createElement('p')
-      cityEl.classList = 'city'
-      cityEl.textContent = location
-      infosEl.append(cityEl)
+      const locationEl = document.createElement('a')
+      locationEl.classList = 'location'
+      const wordsOfLocation = location.split(' ')
+      console.log(wordsOfLocation)
+      locationEl.setAttribute('href', `https://www.google.com/maps/search/${location}`)
+      locationEl.setAttribute('target', '_blank')
+      locationEl.textContent = location
+      infosEl.append(locationEl)
       const conditionEl = document.createElement('p')
       conditionEl.textContent = `Current condition: ${weatherDescription}`
       infosEl.append(conditionEl)
