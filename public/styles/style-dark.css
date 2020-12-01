@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  text-decoration: underline;
+  color: rgba(200, 220, 240, 1);
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+}
+
+html {
+  background: rgb(20,20,20);
+}
+
+img {
+  height: 200px;
+  width: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.navbar {
+  display: flex;
+  height: 60px;
+  background: rgb(40,40,40);
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  outline: none;
+}
+
+body {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 16px;
+  font-family: 'Titillium Web', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}
+
+header {
+  display: flex;
+  height: 60px;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 40px 20px;
+  margin-bottom: 24px;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 2px solid rgba(100,120,120,1);
+}
+
+header h1 {
+  font-size: 4rem;
+}
+
+nav a {
+  padding: 10px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+nav a:hover {
+  border-bottom: 2px solid rgba(12, 60, 120, 1);
+}
+
+.portrait {
+  height: 240px;
+  width: 240px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+#weather-form {
+  margin: 16px 0;
+}
+
+#weather-form > * {
+  padding: 8px 16px;
+  font-size: 1.2em;
+  border: none;
+  box-shadow: -2px -3px 4px 1px rgb(255, 255, 255) inset, 1px 2px 4px 1px rgba(0,0,0,0.2) inset, 1px 2px 4px 1px rgba(0,0,0,0.2);
+  border-radius: 60px;
+}
+
+
+#weather-form input {
+  padding: 8px 16px;
+  background: rgba(244, 244, 244, 1);
+}
+
+#weather-form button {
+  cursor: pointer;
+  margin-right: 8px;
+  background: rgba(240, 240, 240, 1);
+}
+
+.forecast-item {
+  background: rgba(240, 240, 240, 1);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
+  margin-bottom: 12px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  transition: 1.6s cubic-bezier(0.6,0,1,0.6);
+  border-radius: 40px;
+  box-shadow: -3px -4px 6px 0px rgba(255, 255, 255, 0.4) inset, 2px 3px 6px 0px rgba(0,0,0,0.16) inset, 1px 2px 6px 0px rgba(0,0,0,0.2);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.success {
+  background: rgba(220, 255, 220, 1);
+}
+
+.fail {
+  background: rgba(255, 220, 220, 1);
+}
+
+.city {
+  text-decoration: underline;
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+.weather-icon {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.weather-infos {
+  line-height: 1.2;
+}
+
+footer {
+  color: #444;
+  border-top: 2px solid rgba(100,120,120,1);
+  margin: 16px 0;
+  padding: 16px 0;
+}
+
+footer p {
+  text-align: right;
+}
