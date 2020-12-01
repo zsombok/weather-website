@@ -16,7 +16,7 @@ weatherForm.addEventListener('submit', (e) => {
   containerEl.append(loadingEl)
 
   window.fetch(`/weather?address=${location}`).then((response) => {
-    response.json().then(({ error, lat, long, weatherIcon, location, weatherDescription, temperature, feelslike } = {}) => {
+    response.json().then(({ error, weatherIcon, location, weatherDescription, temperature, feelslike } = {}) => {
       clearInterval(loadingInterval)
       containerEl.removeChild(loadingEl)
       if (error) {
