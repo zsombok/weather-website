@@ -1,3 +1,4 @@
+console.log('WEEEE')
 const weatherForm = document.querySelector('#weather-form')
 
 weatherForm.addEventListener('submit', (e) => {
