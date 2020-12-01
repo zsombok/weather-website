@@ -16,7 +16,7 @@ weatherForm.addEventListener('submit', (e) => {
   loadingEl.setAttribute('style', 'padding-left: 8px')
   containerEl.append(loadingEl)
 
-  window.fetch(`http://localhost:3000/weather?address=${location}`).then((response) => {
+  window.fetch(`/weather?address=${location}`).then((response) => {
     response.json().then(({ error, weatherIcon, location, weatherDescription, temperature, feelslike } = {}) => {
       clearInterval(loadingInterval)
       containerEl.removeChild(loadingEl)
